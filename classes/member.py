@@ -17,3 +17,7 @@ class Member(Person):
         if book:
             self.borrowedBooks.remove(book)
             print(f"{book.title} just been returned by {self.name}")
+
+    def showBorrowedBooks(self):
+        for book in self.borrowedBooks:
+            print(f"title: {book.title}, author: {book.author}, isbn: {book.isbn}")

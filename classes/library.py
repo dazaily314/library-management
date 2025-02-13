@@ -8,20 +8,23 @@ class Library:
 
     def removeBook(self,book_title):
         for book in self.books:
-            if book == book_title:
+            if book.title == book_title:
                 self.books.remove(book)
                 print(f"{book.title} is removed")
                 return
         print("this book is not found")
     def borrowBook(self,bookTitle):
         for book in self.books:
-            if book == bookTitle and book.available:
+            if book.title == bookTitle and book.available:
                 book.available = False
                 return book
         print("book not available")
 
-    def returnBook(self,book):
-        book.available = True
+    def returnBook(self,bookTitle):
+        for book in self.books:
+            if book.title == bookTitle:
+                book.available = True
+                return book
 
     def displayBooks(self):
         for book in self.books:
